@@ -3,7 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:lcsa_drawboard/glasscomponent.dart';
 
 void main(){
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
+      title: "LCSA Whiteboard",
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 0, 255, 255)),
+      ),
       debugShowCheckedModeBanner: false,
       home : App()));
 }

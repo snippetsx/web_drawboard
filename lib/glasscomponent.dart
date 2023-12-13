@@ -65,6 +65,26 @@ class GlassComponent extends StatelessWidget {
                     ),
                   ),
                   Positioned(
+                    top: 130,
+                    right: MediaQuery.of(context).size.width/11.5,
+                    child:  Container(
+                      height: 125,
+                      width: 125,
+                      child: TextButton(
+
+                        style: TextButton.styleFrom(
+                        foregroundColor: Colors.white, backgroundColor: Color.fromARGB(60, 0, 23, 23),
+                        padding: const EdgeInsets.all(16.0),
+                        textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                        ),
+                        onPressed: () {},
+
+                        child: const Text('LOGIN'),
+
+                        ),
+                    ),
+                  ),
+                  Positioned(
                     bottom: 40,
                     left: 20,
                     child: Text("DEVELOPED BY SNIPPETSX", style: TextStyle(
@@ -76,7 +96,7 @@ class GlassComponent extends StatelessWidget {
                   Positioned(
                     bottom: 40,
                     right: 32,
-                    child: Text("EXPIRY 02/04",style: TextStyle(
+                    child: Text("EXCLUSIVE FOR LYCEYM 15",style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
                     ),
