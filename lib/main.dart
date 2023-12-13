@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lcsa_drawboard/glasscomponent.dart';
+
 void main(){
   runApp(const MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image:AssetImage("assets/wallpaper.gif"),
+                    image:AssetImage("assets/bg.png"),
                     fit: BoxFit.fill
                 ),
               ),
