@@ -27,7 +27,7 @@ class App extends StatelessWidget {
                     fit: BoxFit.fill
                 ),
               ),
-              child: GlassComponent()
+              child: Login()
           )
       );
   }
