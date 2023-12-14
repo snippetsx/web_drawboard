@@ -3,9 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/mysql_connect.dart';
 
-void connector(){
-  connect();
-}
 
 class Login extends StatelessWidget {
   @override
@@ -90,7 +87,7 @@ class Login extends StatelessWidget {
                   ),
                   Positioned(
                     top: 130,
-                    right: 190,
+                    right: 205,
                     child:  Container(
                       height: 125,
                       width: 125,
@@ -197,6 +194,15 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Positioned(
+                    top: 70,
+                    left: 20,
+                    child: Text("Register",style: TextStyle(
+                      color: Colors.white.withOpacity(0.50),
+                      fontSize: 14,
+                    ),
+                    ),
+                  ),
+                  Positioned(
                     top: 90,
                     left:20,
                     child:  Container(
@@ -232,7 +238,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 240,
+                    top: 230,
                     left:20,
                     child:  Container(
                       height: MediaQuery.of(context).size.height/2.5,
