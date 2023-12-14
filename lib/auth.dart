@@ -1,11 +1,26 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lcsa_drawboard/mysql_connect.dart';
+
+void connector(){
+  connect();
+}
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
+    decoration: const BoxDecoration(
+    image: DecorationImage(
+    image:AssetImage("assets/bg.png"),
+    fit: BoxFit.cover
+    ),
+    ),
+    child: Center(
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
@@ -27,6 +42,15 @@ class Login extends StatelessWidget {
                       height: 60,
                       width: 60,
                       child: Image.asset('assets/lcsa_logo.png')
+                    ),
+                  ),
+                  Positioned(
+                    top: 70,
+                    left: 20,
+                    child: Text("Login",style: TextStyle(
+                      color: Colors.white.withOpacity(0.50),
+                      fontSize: 14,
+                    ),
                     ),
                   ),
                   Positioned(
@@ -97,7 +121,9 @@ class Login extends StatelessWidget {
                           padding: const EdgeInsets.all(16.0),
                           textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
-                        onPressed: null,
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                      },
                         child: const Text('Register'),
 
                       ),
@@ -126,15 +152,28 @@ class Login extends StatelessWidget {
           ),
         ),
       ),
+      ),
+    ),
     );
   }
 }
 
 class Register extends StatelessWidget {
+  const Register({super.key});
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+    return Scaffold(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image:AssetImage("assets/bg.png"),
+              fit: BoxFit.cover
+          ),
+        ),
+        child: Center(
+        child:Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             border: Border.all(color: Colors.white.withOpacity(0.3),width: 1)
@@ -158,7 +197,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 130,
+                    top: 90,
                     left:20,
                     child:  Container(
                       height: MediaQuery.of(context).size.height/2.5,
@@ -175,7 +214,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 200,
+                    top: 160,
                     left:20,
                     child:  Container(
                       height: MediaQuery.of(context).size.height/2.5,
@@ -193,26 +232,63 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Positioned(
+                    top: 240,
+                    left:20,
+                    child:  Container(
+                      height: MediaQuery.of(context).size.height/2.5,
+                      width: MediaQuery.of(context).size.height/2.5,
+                      child: TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Re-type Password'
+                          ),
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.50),
+                            fontSize: 16,)
+                      ),
+                    ),
+                  ),
+                  Positioned(
                     top: 130,
-                    right: MediaQuery.of(context).size.width/11.5,
+                    right: 205,
                     child:  Container(
                       height: 125,
                       width: 125,
                       child: TextButton(
 
                         style: TextButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Color.fromARGB(60, 0, 23, 23),
+                          foregroundColor: Colors.white, backgroundColor: Color.fromARGB(90, 0, 23, 23),
                           padding: const EdgeInsets.all(16.0),
                           textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {},
-
-                        child: const Text('LOGIN'),
+                        child: const Text('Register'),
 
                       ),
                     ),
                   ),
+                  Positioned(
+                    top: 130,
+                    right: 60,
+                    child:  Container(
+                      height: 125,
+                      width: 125,
+                      child: TextButton(
 
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white, backgroundColor: Color.fromARGB(90, 0, 23, 23),
+                          padding: const EdgeInsets.all(16.0),
+                          textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Go back'),
+
+                      ),
+                    ),
+                  ),
                   Positioned(
                     bottom: 40,
                     left: 20,
@@ -236,6 +312,7 @@ class Register extends StatelessWidget {
           ),
         ),
       ),
+    ),),
     );
   }
 }
