@@ -3,8 +3,34 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/mysql_connect.dart';
 
+var user = "";
+var password = "";
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _Login createState() => _Login();
+}
+
+class _Login extends State<Login>{
+  var user = '';
+  var password = '';
+  var _res = '';
+  var sql_username = 'snippetsx'; // conn.query('select username from users where username = $user');
+  var sql_password = '17092006Go';
+  void _res_state(user, password) {
+    if (sql_username != user || sql_password != password) {
+      setState(() {
+        _res = 'Error';
+      });
+    }
+    else
+    {
+      setState(() {
+        _res = 'OK';
+      });
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +87,9 @@ class Login extends StatelessWidget {
                           border: OutlineInputBorder(),
                           hintText: 'Username',
                         ),
+                          onChanged: (username) {
+                          user = username;
+                          },
                           style: TextStyle(
                             color: Colors.white.withOpacity(0.50),
                             fontSize: 16,)
@@ -79,10 +108,22 @@ class Login extends StatelessWidget {
                           border: OutlineInputBorder(),
                           hintText: 'Password'
                         ),
+                        onChanged: (passwd) {
+                          password = passwd;
+                        },
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.50),
                           fontSize: 16,)
                       ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 270,
+                    left: 20,
+                    child: Text(_res, style: TextStyle(
+                      color: Colors.white.withOpacity(0.50),
+                      fontSize: 12,
+                    ),
                     ),
                   ),
                   Positioned(
@@ -98,7 +139,9 @@ class Login extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          _res_state(user, password);
+                        },
 
                         child: const Text('Login'),
 
