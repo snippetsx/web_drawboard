@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:lcsa_drawboard/mysql_connect.dart';
+import 'package:lcsa_drawboard/login_api.dart';
 
 var user = "";
 var password = "";
@@ -12,24 +12,22 @@ class Login extends StatefulWidget {
 }
 
 class _Login extends State<Login>{
-  var user = '';
+  var username = '';
   var password = '';
   var _res = '';
-  var sql_username = 'snippetsx'; // conn.query('select username from users where username = $user');
-  var sql_password = '17092006Go';
-  void _res_state(user, password) {
-    if (sql_username != user || sql_password != password) {
+  void _login_api() async {
+    try {
+      final user = await fetchUser(1);
       setState(() {
-        _res = 'Error';
+        _res = 'hello, $username';
+        print(user);
+      });
+    } catch (e) {
+      setState(() {
+        print(e);
+        _res = '$e';
       });
     }
-    else
-    {
-      setState(() {
-        _res = 'OK';
-      });
-    }
-
   }
   @override
   Widget build(BuildContext context) {
@@ -140,7 +138,7 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
-                          _res_state(user, password);
+                          _login_api();
                         },
 
                         child: const Text('Login'),
