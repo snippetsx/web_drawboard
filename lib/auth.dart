@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/login_api.dart';
+import 'package:lcsa_drawboard/crypto.dart';
 
 var user = "";
 var password = "";
@@ -138,6 +139,7 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
+                          //password = crypto256(password);
                           _login_api(username);
                           print(username);
                         },
