@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-Future<dynamic> fetchUser(int id) async {
+Future<dynamic> fetchUser(String username) async {
   final response = await http.get(
-      Uri.parse('http://192.168.1.7:3000/user?user_id=1'));
+      Uri.parse('http://192.168.1.7:3000/user?username=$username'));
 
   if (response.statusCode == 200) {
     // Парсинг JSON-ответа
@@ -18,7 +18,7 @@ Future<dynamic> fetchUser(int id) async {
 Future<dynamic> registerUser(String name, String email, String password) async {
   final response = await http.post(
       Uri.parse('http://localhost:3000/register'), body: {
-    'name': name,
+    'username': name,
     'email': email,
     'password': password,
   });

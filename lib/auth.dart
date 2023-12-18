@@ -15,9 +15,9 @@ class _Login extends State<Login>{
   var username = '';
   var password = '';
   var _res = '';
-  void _login_api() async {
+  void _login_api(username) async {
     try {
-      final user = await fetchUser(1);
+      final user = await fetchUser(username);
       setState(() {
         _res = 'hello, $username';
         print(user);
@@ -85,8 +85,8 @@ class _Login extends State<Login>{
                           border: OutlineInputBorder(),
                           hintText: 'Username',
                         ),
-                          onChanged: (username) {
-                          user = username;
+                          onChanged: (user) {
+                            username = user;
                           },
                           style: TextStyle(
                             color: Colors.white.withOpacity(0.50),
@@ -138,7 +138,8 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
-                          _login_api();
+                          _login_api(username);
+                          print(username);
                         },
 
                         child: const Text('Login'),
