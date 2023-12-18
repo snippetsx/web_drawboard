@@ -4,9 +4,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 Future<dynamic> fetchUser(String username) async {
-  final response = await http.get(
-      Uri.parse('http://192.168.1.7:3000/user?username=$username'));
-
+  final queryParameters = {
+    'username': username,
+  };
+  final uri = Uri.https('api.lcsa.ru', '/user', queryParameters);
+  final headers = {HttpHeaders.contentTypeHeader: 'application/json'};
+  final response = await http.get(uri, headers: headers);
   if (response.statusCode == 200) {
     // Парсинг JSON-ответа
     return jsonDecode(response.body);
@@ -17,7 +20,7 @@ Future<dynamic> fetchUser(String username) async {
 
 Future<dynamic> registerUser(String name, String email, String password) async {
   final response = await http.post(
-      Uri.parse('http://localhost:3000/register'), body: {
+      Uri.parse('https://api.lca.ru/register'), body: {
     'username': name,
     'email': email,
     'password': password,
