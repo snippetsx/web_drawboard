@@ -15,8 +15,9 @@ class Login extends StatefulWidget {
 class _Login extends State<Login>{
   var username = '';
   var password = '';
+  var hashed_pass = '';
   var _res = '';
-  void _login_api(username) async {
+  void _login_api(username, pass) async {
     try {
       final user = await fetchUser(username);
       setState(() {
@@ -140,8 +141,10 @@ class _Login extends State<Login>{
                         ),
                         onPressed: () {
                           //password = crypto256(password);
-                          _login_api(username);
+                          _login_api(username, hashed_pass);
+                          hashed_pass = crypto256(password);
                           print(username);
+                          print(hashed_pass);
                         },
 
                         child: const Text('Login'),
@@ -198,9 +201,12 @@ class _Login extends State<Login>{
     );
   }
 }
+class Register extends StatefulWidget {
+  @override
+  _Register createState() => _Register();
+}
 
-class Register extends StatelessWidget {
-  const Register({super.key});
+class _Register extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -308,7 +314,7 @@ class Register extends StatelessWidget {
                       child: TextButton(
 
                         style: TextButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Color.fromARGB(90, 0, 23, 23),
+                          foregroundColor: Colors.white, backgroundColor: Color.fromARGB(20, 0, 200, 200),
                           padding: const EdgeInsets.all(16.0),
                           textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
