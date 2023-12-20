@@ -27,7 +27,7 @@ class _Login extends State<Login>{
     } catch (e) {
       setState(() {
         print(e);
-        _res = '$e';
+        _res = 'Error: Incorrect username or password';
       });
     }
   }
@@ -50,8 +50,8 @@ class _Login extends State<Login>{
             border: Border.all(color: Colors.white.withOpacity(0.3),width: 1)
         ),
         margin: const EdgeInsets.all(18),
-        height: MediaQuery.of(context).size.height/2.5,
-        width: MediaQuery.of(context).size.width/2.5,
+        height: 400,
+        width: 700,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: BackdropFilter(
@@ -60,7 +60,7 @@ class _Login extends State<Login>{
                 children: [
                   Positioned(
                     top: 20,
-                    left:20,
+                    left:10,
                     child:  Container(
                       height: 60,
                       width: 60,
@@ -69,7 +69,7 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 70,
-                    left: 20,
+                    left: 10,
                     child: Text("Login",style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
@@ -78,10 +78,10 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 130,
-                    left:20,
+                    left:10,
                     child:  Container(
-                      height: MediaQuery.of(context).size.height/2.5,
-                      width: MediaQuery.of(context).size.height/2.5,
+                      height: 100,
+                      width: 325,
                       child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -98,10 +98,10 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 200,
-                    left:20,
+                    left:10,
                     child:  Container(
-                      height: MediaQuery.of(context).size.height/2.5,
-                      width: MediaQuery.of(context).size.height/2.5,
+                      height: 100,
+                      width: 325,
                       child: TextField(
                         obscureText: true,
                         decoration: InputDecoration(
@@ -119,7 +119,7 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 270,
-                    left: 20,
+                    left: 10,
                     child: Text(_res, style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 12,
@@ -175,8 +175,8 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     bottom: 40,
-                    left: 20,
-                    child: Text("DEVELOPED BY SNIPPETSX", style: TextStyle(
+                    left: 10,
+                    child: Text("DEVELOPED BY:\nSNIPPETSX", style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
                     ),
@@ -184,8 +184,8 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     bottom: 40,
-                    right: 32,
-                    child: Text("EXCLUSIVE FOR LYCEYM 15",style: TextStyle(
+                    right: 20,
+                    child: Text("EXCLUSIVE FOR:\nLYCEYM 15",style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
                     ),
