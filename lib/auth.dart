@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/login_api.dart';
 import 'package:lcsa_drawboard/crypto.dart';
 
-var user = "";
-var password = "";
-
 class Login extends StatefulWidget {
   @override
   _Login createState() => _Login();
@@ -50,7 +47,7 @@ class _Login extends State<Login>{
             border: Border.all(color: Colors.white.withOpacity(0.3),width: 1)
         ),
         margin: const EdgeInsets.all(18),
-        height: 400,
+        height: 500,
         width: 700,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
@@ -98,7 +95,7 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 200,
-                    left:10,
+                    left:15,
                     child:  Container(
                       height: 100,
                       width: 325,
@@ -226,7 +223,7 @@ class _Register extends State<Register> {
             border: Border.all(color: Colors.white.withOpacity(0.3),width: 1)
         ),
         margin: const EdgeInsets.all(18),
-        height: 400,
+        height: 500,
         width: 700,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
