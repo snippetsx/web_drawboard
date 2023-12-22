@@ -78,7 +78,7 @@ class _Login extends State<Login>{
                   ),
                   Positioned(
                     top: 130,
-                    left:10,
+                    left:15,
                     child:  Container(
                       height: 100,
                       width: 325,
@@ -226,8 +226,8 @@ class _Register extends State<Register> {
             border: Border.all(color: Colors.white.withOpacity(0.3),width: 1)
         ),
         margin: const EdgeInsets.all(18),
-        height: MediaQuery.of(context).size.height/2.5,
-        width: MediaQuery.of(context).size.width/2.5,
+        height: 400,
+        width: 700,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: BackdropFilter(
@@ -245,7 +245,7 @@ class _Register extends State<Register> {
                   ),
                   Positioned(
                     top: 70,
-                    left: 20,
+                    left: 15,
                     child: Text("Register",style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
@@ -254,10 +254,10 @@ class _Register extends State<Register> {
                   ),
                   Positioned(
                     top: 90,
-                    left:20,
+                    left:15,
                     child:  Container(
-                      height: MediaQuery.of(context).size.height/2.5,
-                      width: MediaQuery.of(context).size.height/2.5,
+                      height: 100,
+                      width: 325,
                       child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -271,10 +271,10 @@ class _Register extends State<Register> {
                   ),
                   Positioned(
                     top: 160,
-                    left:20,
+                    left:15,
                     child:  Container(
-                      height: MediaQuery.of(context).size.height/2.5,
-                      width: MediaQuery.of(context).size.height/2.5,
+                      height: 100,
+                      width: 325,
                       child: TextField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -289,10 +289,10 @@ class _Register extends State<Register> {
                   ),
                   Positioned(
                     top: 230,
-                    left:20,
+                    left:15,
                     child:  Container(
-                      height: MediaQuery.of(context).size.height/2.5,
-                      width: MediaQuery.of(context).size.height/2.5,
+                      height: 100,
+                      width: 325,
                       child: TextField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -348,7 +348,7 @@ class _Register extends State<Register> {
                   Positioned(
                     bottom: 40,
                     left: 20,
-                    child: Text("DEVELOPED BY SNIPPETSX", style: TextStyle(
+                    child: Text("DEVELOPED BY:\nSNIPPETSX", style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
                     ),
@@ -356,8 +356,8 @@ class _Register extends State<Register> {
                   ),
                   Positioned(
                     bottom: 40,
-                    right: 32,
-                    child: Text("EXCLUSIVE FOR LYCEYM 15",style: TextStyle(
+                    right: 20,
+                    child: Text("EXCLUSIVE FOR:\nLYCEYM 15",style: TextStyle(
                       color: Colors.white.withOpacity(0.50),
                       fontSize: 14,
                     ),
