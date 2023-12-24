@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-Future<dynamic> fetchUser(String username) async {
+Future<dynamic> fetchUser(String username, String password) async {
   final queryParameters = {
     'username': username,
   };
@@ -12,7 +12,14 @@ Future<dynamic> fetchUser(String username) async {
   final response = await http.get(uri, headers: headers);
   if (response.statusCode == 200) {
     // Парсинг JSON-ответа
-    return jsonDecode(response.body);
+    Map<String, dynamic> jsonAnswer = jsonDecode(response.body);
+    if(jsonAnswer['password'] == password) {
+      return "OK";
+    }
+    else{
+      throw Exception("Failed");
+    }
+
   } else {
     throw Exception('Failed to fetch user data');
   }

@@ -14,12 +14,13 @@ class _Login extends State<Login>{
   var password = '';
   var hashed_pass = '';
   var _res = '';
-  void _login_api(username, pass) async {
+  void _login_api(username, password) async {
     try {
-      final user = await fetchUser(username);
+      final user = await fetchUser(username, password);
       setState(() {
-        _res = 'hello, $username';
+        _res = 'Welcome, $username ))';
         print(user);
+
       });
     } catch (e) {
       setState(() {
@@ -137,7 +138,7 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
-                          //password = crypto256(password);
+
                           _login_api(username, hashed_pass);
                           hashed_pass = crypto256(password);
                           print(username);
