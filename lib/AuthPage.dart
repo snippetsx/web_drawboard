@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lcsa_drawboard/MainPage.dart';
 import 'package:lcsa_drawboard/login_api.dart';
 import 'package:lcsa_drawboard/crypto.dart';
 import 'package:lcsa_drawboard/Drawboard_page.dart';
@@ -142,7 +143,7 @@ class _Login extends State<Login>{
                           hashed_pass = crypto256(password);
                           _login_api(username, hashed_pass);
                           if(_res == 'Welcome $username'){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Drawing()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
                           }
                         },
 

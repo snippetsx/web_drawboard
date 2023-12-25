@@ -39,7 +39,7 @@ class _MainPage extends State<MainPage>{
                     children: [
                       Positioned(
                         top: 20,
-                        left:10,
+                        left:20,
                         child:  Container(
                             height: 60,
                             width: 60,
@@ -47,10 +47,22 @@ class _MainPage extends State<MainPage>{
                         ),
                       ),
                       Positioned(
+                        top: 60,
+                        left:20,
+                        child: Text(
+                          "HELLO", style: TextStyle(
+                            color: Colors.white.withOpacity(0.50)
+
+                          ),
+                        ),
+                      ),
+                      Positioned(
                         bottom: 20,
                         right: 20,
                         child: RawMaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           elevation: 2.0,
                           fillColor: Color.fromARGB(
                               255, 1, 143, 117),
