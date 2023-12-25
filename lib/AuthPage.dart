@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/login_api.dart';
 import 'package:lcsa_drawboard/crypto.dart';
+import 'package:lcsa_drawboard/MainPage.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _Login extends State<Login>{
     try {
       final user = await fetchUser(username, password);
       setState(() {
-        _res = 'Welcome, $username ))';
+        _res = 'Welcome $username';
         print(user);
 
       });
@@ -138,11 +139,14 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
-
-                          _login_api(username, hashed_pass);
                           hashed_pass = crypto256(password);
+                          _login_api(username, hashed_pass);
                           print(username);
                           print(hashed_pass);
+                          print(_res);
+                          if(_res == 'Welcome $username'){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
+                          }
                         },
 
                         child: const Text('Login'),
@@ -199,6 +203,8 @@ class _Login extends State<Login>{
     );
   }
 }
+
+
 class Register extends StatefulWidget {
   @override
   _Register createState() => _Register();

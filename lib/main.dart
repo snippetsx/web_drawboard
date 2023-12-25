@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:lcsa_drawboard/auth.dart';
+import 'package:lcsa_drawboard/AuthPage.dart';
 
 void main(){
   runApp(MaterialApp(
