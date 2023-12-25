@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lcsa_drawboard/login_api.dart';
 import 'package:lcsa_drawboard/crypto.dart';
-import 'package:lcsa_drawboard/MainPage.dart';
+import 'package:lcsa_drawboard/Drawboard_page.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -141,11 +141,8 @@ class _Login extends State<Login>{
                         onPressed: () {
                           hashed_pass = crypto256(password);
                           _login_api(username, hashed_pass);
-                          print(username);
-                          print(hashed_pass);
-                          print(_res);
                           if(_res == 'Welcome $username'){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Drawing()));
                           }
                         },
 
