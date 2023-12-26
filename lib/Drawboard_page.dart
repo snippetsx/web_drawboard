@@ -9,11 +9,8 @@ class Drawing extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LCSA_Drawboard',
-      theme: ThemeData(useMaterial3: false),
-      debugShowCheckedModeBanner: false,
-      home: const DrawingPage(),
+    return Scaffold(
+      body: DrawingPage()
     );
   }
 }

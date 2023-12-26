@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lcsa_drawboard/Drawboard_page.dart';
 
 const Color kCanvasColor = Color(0xfff2f3f7);
 
@@ -47,11 +48,34 @@ class _MainPage extends State<MainPage>{
                         ),
                       ),
                       Positioned(
-                        top: 60,
+                        top: 70,
                         left:20,
                         child: Text(
-                          "HELLO", style: TextStyle(
+                          "Main Page", style: TextStyle(
                             color: Colors.white.withOpacity(0.50)
+
+
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 100,
+                        left: 20,
+                        child:  Container(
+                          height: 125,
+                          width: 190,
+                          child: TextButton(
+
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.white, backgroundColor: Color.fromARGB(20, 0, 200, 200),
+                              padding: const EdgeInsets.all(16.0),
+                              textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                            ),
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Drawing()));
+                            },
+
+                            child: const Text('LCSA Drawboard'),
 
                           ),
                         ),
