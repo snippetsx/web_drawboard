@@ -91,7 +91,7 @@ class _MainPage extends State<MainPage>{
                           fillColor: Color.fromARGB(
                               255, 1, 143, 117),
                           child: Icon(
-                            Icons.add,
+                            Icons.logout,
                             size: 35.0,
                             color: Colors.white,
                           ),
