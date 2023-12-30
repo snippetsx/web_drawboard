@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -16,19 +17,19 @@ class _Login extends State<Login>{
   var password = '';
   var hashed_pass = '';
   var _res = '';
-  void _login_api(username, password) async {
+  var  LoginA_varible = 'Login';
+  var x = -1;
+  Future<dynamic> _login_api(String usr, String psswrd) async {
     try {
-      final user = await fetchUser(username, password);
+      final user = await fetchUser(usr, psswrd);
+      print(user);
       setState(() {
-        _res = 'Welcome $username';
-        print(user);
-
+        _res = "ok";
+        LoginA_varible = "Confirm Login";
       });
     } catch (e) {
-      setState(() {
-        print(e);
-        _res = 'Error: Incorrect username or password';
-      });
+      _res = "err";
+      LoginA_varible = "Retry Login";
     }
   }
   @override
@@ -140,14 +141,16 @@ class _Login extends State<Login>{
                         textStyle: const TextStyle(fontSize: 20), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         ),
                         onPressed: () {
+
                           hashed_pass = crypto256(password);
                           _login_api(username, hashed_pass);
-                          if(_res == 'Welcome $username'){
+
+                          if(_login_api(username, hashed_pass) == null){
                             Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage()));
                           }
                         },
 
-                        child: const Text('Login'),
+                        child:  Text(LoginA_varible),
 
                         ),
                     ),
